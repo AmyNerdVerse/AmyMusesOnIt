@@ -1,0 +1,39 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="style.css">
+    <title>Amy Muses On It</title>
+   
+</head>
+<body>
+    <section>
+        <!-- Sidebar -->
+        <button class="openbtn" onclick="toggleSidebar()">☰</button>
+        
+        <div id="sidebar" class="sidebar">
+          <button class="closebtn" onclick="toggleSidebar()">×</button>
+          <ul>
+            <li><a href="#aboutme">About Me</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#archive">Archive</a></li>
+            <li><a href="#resume">Resume</a></li>
+          </ul>
+        </div>
+            
+        </section>
+
+    
+</body>
+
+<script>
+    // Internal Javascript
+    //Sidebar
+    function toggleSidebar() {
+  var sidebar = document.getElementById('sidebar');
+  sidebar.classList.toggle('active');
+}   
+    
+</script>
+
+</html>

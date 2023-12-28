@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Meta tags, title, and external stylesheet links -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Amy Muses On It</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  </head>
+
+<!------------------------------------------------------------------------------------------------->
+<style>
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+}
+
+/* --- CSS FOR SIDE BAR --- */ 
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 20px;
+    color: #000;
+  }
+  
+  .sidebar.active {
+    width: 250px;
+  }
+
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 8px 16px;
+  }
+  
+  .sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .sidebar ul li a:hover {
+    background-color: #555;
+  }
+  
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+  
+  .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    background: none;
+  }
+
+/* CSS STYLE FOR */
+  .portfoliotext
+{
+    background-color: whitesmoke;
+    color: black;
+    height: 50vh; /* Adjust the height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+} 
+
+
+.section1right {
+  float: left;
+  width: 70%;
+  height: 300px;
+  background-color: whitesmoke;
+  padding: 20px;
+}
+
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 600px) {
+  .section1left, .section1right {
+    width: 100%;
+    height: auto;
+    float: none; /* Clearing the float for responsiveness */
+  }
+}
+
+/* CSS styles for Slideshow COD */
+.section1cod {
+            position: relative;
+        }
+
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            overflow: hidden;
+            margin-top: 20px; /* Adjust spacing */
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 3px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .next {
+            right: 0;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+
+</style>
+
+<!------------------------------------------------------------------------------------------------>
+<body>
+<section>
+<!-- Sidebar -->
+<button class="openbtn" onclick="toggleSidebar()">☰</button>
+
+<div id="sidebar" class="sidebar">
+  <button class="closebtn" onclick="toggleSidebar()">×</button>
+  <ul>
+    <li><a href="#aboutme">About Me</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#archive">Archive</a></li>
+    <li><a href="#resume">Resume</a></li>
+  </ul>
+</div>
+</section>
+<!----------------------------------------------------------------------------------------------->
+<section>
+  <!-- (Amy Muses On It) -->
+     <div class="portfoliocontainer">
+       <div class="portfoliotext">
+        <h1><a href="index.html" class="link">AMY MUSES ON IT</a></h1>
+       </div>
+     </div>
+</section>
+<!------------------------------------------------------------------------------------------------>
+<!-- SECTION 1 - Slideshow of COD -->
+<section>
+  <div class="section1cod">
+    <h2>Citra Open Day - Tu, jaga!</h2>
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <img src="cod/cod1.png" style="width: 25%">
+      </div>
+
+      <div class="mySlides fade">
+        <img src="cod/cod2.png" style="width:25%">
+      </div>
+
+      <div class="mySlides fade">
+        <img src="cod/cod3.png" style="width:25%">
+      </div>
+
+      <!-- Navigation arrows -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section1right">
+    <h3>This is on the right</h3>
+  </div>
+</section>
+
+</body>
+
+<!------------------------------------------------------------------------------------------------>
+<script>
+// Internal Javascript for Sidebar
+    function toggleSidebar() 
+{
+  var sidebar = document.getElementById('sidebar');
+  sidebar.classList.toggle('active');
+}   
+
+// Internal Javascript for Slideshow COD
+        let slideIndex = 1;
+
+        function showSlides(n) {
+            let i;
+            const slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        showSlides(slideIndex);
+    </script>
+
+</html>
